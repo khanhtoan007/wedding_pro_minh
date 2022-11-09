@@ -36,6 +36,24 @@ public class LoginDAO {
         return false;
     }//check user ton tai trong db
 
+    public boolean checkEmail(String email){
+        String query = "select * from NGUOIDUNG where email = ?";
+        try{
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            return false;
+        } catch (Exception e) {
+            return false;
+        }
+        return false;
+    }
+
     public User getUserInfo(String username, String password){
         String query = "select * from NGUOIDUNG where username = ? and password = ?";
         User user = new User();
