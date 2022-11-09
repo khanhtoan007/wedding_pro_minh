@@ -11,6 +11,7 @@ import java.io.IOException;
 public class ChangePasswordServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("MESSAGE", "");
         request.getRequestDispatcher("changePassword.jsp").forward(request, response);
     }
 
@@ -18,12 +19,14 @@ public class ChangePasswordServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String hash = request.getParameter("hash");
         String password = request.getParameter("password");
+        System.out.println(hash + " " +password);
+        System.out.println("vao dc changepasswordServlet doPost");
         boolean check = new AccountDAO().changePassword(hash,password);
             if (check){
-                request.setAttribute("message", "<div class=\"alert alert-success\" role=\"alert\">Đổi mật khẩu thành công.</div>");
+                request.setAttribute("MESSAGE", "<div class=\"alert alert-success\" role=\"alert\">Đổi mật khẩu thành công.</div>");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             } else {
-                request.setAttribute("message", "<div class=\"alert alert-danger\" role=\"alert\">Có lỗi xảy ra.</div>");
+                request.setAttribute("MESSAGE", "<div class=\"alert alert-danger\" role=\"alert\">Có lỗi xảy ra.</div>");
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }
     }

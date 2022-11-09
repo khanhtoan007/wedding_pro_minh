@@ -2,24 +2,40 @@ package model;
 
 public class Content {
     private int contentID;
-    private String page;
+    private String contentType;
     private String contentName;
     private String label;
     private String secondLabel;
-    private String description;
+    private int likeHit;
     private String image;
+    private String description;
+    private String comment;
 
-    public Content(int contentID, String page, String contentName, String label, String secondLabel, String description, String image) {
+    public  Content() {
+
+    }
+
+    public Content(int contentID, String contentType, String contentName, String label, String secondLabel, int likeHit, String image, String description, String comment) {
         this.contentID = contentID;
-        this.page = page;
+        this.contentType = contentType;
         this.contentName = contentName;
         this.label = label;
         this.secondLabel = secondLabel;
-        this.description = description;
+        this.likeHit = likeHit;
         this.image = image;
+        this.description = description;
+        this.comment = comment;
     }
 
-    public Content() {
+    public Content(String contentType, String contentName, String label, String secondLabel, int likeHit, String image, String description, String comment) {
+        this.contentType = contentType;
+        this.contentName = contentName;
+        this.label = label;
+        this.secondLabel = secondLabel;
+        this.likeHit = likeHit;
+        this.image = image;
+        this.description = description;
+        this.comment = comment;
     }
 
     public int getContentID() {
@@ -30,12 +46,12 @@ public class Content {
         this.contentID = contentID;
     }
 
-    public String getPage() {
-        return page;
+    public String getContentType() {
+        return contentType;
     }
 
-    public void setPage(String page) {
-        this.page = page;
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
     public String getContentName() {
@@ -62,12 +78,12 @@ public class Content {
         this.secondLabel = secondLabel;
     }
 
-    public String getDescription() {
-        return description;
+    public int getLikeHit() {
+        return likeHit;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setLikeHit(int likeHit) {
+        this.likeHit = likeHit;
     }
 
     public String getImage() {
@@ -78,16 +94,34 @@ public class Content {
         this.image = image;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
     @Override
     public String toString() {
         return "Content{" +
                 "contentID=" + contentID +
-                ", page='" + page + '\'' +
+                ", contentType='" + contentType + '\'' +
                 ", contentName='" + contentName + '\'' +
                 ", label='" + label + '\'' +
                 ", secondLabel='" + secondLabel + '\'' +
-                ", description='" + description + '\'' +
+                ", LikeHit='" + likeHit + '\'' +
                 ", image='" + image + '\'' +
+                ", description='" + description + '\'' +
+                ", Comment=?'" + comment + '\'' +
                 '}';
     }
 }

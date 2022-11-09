@@ -46,7 +46,7 @@
 
 
 
-<div class="app-content content ">
+<div class="app-content content" style="margin-left: 0px;">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper">
@@ -119,7 +119,7 @@
                     <input type="text" class="form-control form-control-merge" name="hash" placeholder="hash" aria-describedby="reset-password-confirm" tabindex="2">
                 </div>
             </div>
-            <button class="btn btn-primary btn-block waves-effect waves-float waves-light" tabindex="3">Set New Password</button>
+            <button class="btn btn-primary btn-block waves-effect waves-float waves-light" type="submit" tabindex="3">Set New Password</button>
         </form>
 
         <p class="text-center mt-2">

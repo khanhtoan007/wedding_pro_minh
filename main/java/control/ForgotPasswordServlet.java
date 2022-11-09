@@ -69,16 +69,21 @@ public class ForgotPasswordServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("vao dc doget");
         request.setAttribute("message", "");
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.setAttribute("MESSAGE", "");
+        request.getRequestDispatcher("forgotPassword.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Vao dc servlet do POst");
         String email = request.getParameter("email");
         String hash = UUID.randomUUID().toString();
         LoginDAO dao = new LoginDAO();
-        if (!dao.checkEmail(email)){
+        System.out.println(hash);
+        System.out.println(dao.checkEmail(email));
+        if (dao.checkEmail(email)){
             boolean checksendMail = false;
             boolean checkChangeHash = dao.changeHash(email,hash);
             try {
@@ -86,15 +91,20 @@ public class ForgotPasswordServlet extends HttpServlet {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            System.out.println(checksendMail);
+            System.out.println("sending change password Email: "+checksendMail);
+            System.out.println("Mã được thay đổi: " +checkChangeHash);
             if (checksendMail && checkChangeHash){
+                request.setAttribute("MESSAGE", "");
                 request.setAttribute("message", "<div class=\"alert alert-success\" role=\"alert\"> Mã đã được gửi về email của bạn. Vui lòng kiểm tra.</div>");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("changePassword.jsp").forward(request, response);
             }
         } else {
+            request.setAttribute("MESSAGE", "");
             request.setAttribute("message", "<div class=\"alert alert-danger\" role=\"alert\">Email chưa được sử dụng để đăng ký !</div>");
         }
     }
     public static void main(String[] args) throws InterruptedException {
-        new ForgotPasswordServlet().sendMailForgot("trandinhkhanhtoan31@gmail.com","ncc");
+//        new ForgotPasswordServlet().sendMailForgot("trandinhkhanhtoan31@gmail.com","ncc");
     }
 }

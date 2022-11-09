@@ -27,7 +27,7 @@
                 <a class="nav-link active" href="LoadServlet">Người dùng</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="Developing.jsp">Blog</a>
+                <a class="nav-link" href="content">Blog</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="service">Sản phẩm</a>
@@ -35,7 +35,7 @@
         </ul>
     </div>
     <span class="navbar-text mr-3">
-                Welcome, ${NAME}
+                    Welcome, ${NAME}
     </span>
     <div class="mr-1">
         <a class="btn btn-danger" href="LogoutServlet">Đăng xuất</a>

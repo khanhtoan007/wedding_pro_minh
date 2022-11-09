@@ -108,7 +108,8 @@ public class LoginDAO {
     public static void main(String[] args) {
         LoginDAO dao = new LoginDAO();
         User us = new User();
-        System.out.println(dao.checkLogin("admin", "123"));
-        System.out.println(dao.getUserInfo("admin", "123").getRole());
+//        System.out.println(dao.checkLogin("admin", "123"));
+//        System.out.println(dao.getUserInfo("admin", "123").getRole());
+        System.out.println(dao.checkEmail("minhtqde160524@fpt.edu.vn"));
     }
 }

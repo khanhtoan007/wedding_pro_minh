@@ -30,7 +30,7 @@ public class ChatRoomServerEndpoint {
         String username = (String) userSession.getUserProperties().get("username");
         if (username == null) {
             userSession.getUserProperties().put("username", message);
-            userSession.getBasicRemote().sendText("System: you are connectd as " + message);
+            userSession.getBasicRemote().sendText("Hệ thống: bạn được kết nối với tên là " + message);
         } else {
             for (Session session : users) {
                 session.getBasicRemote().sendText(username + ": " + message);

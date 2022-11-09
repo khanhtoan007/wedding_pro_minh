@@ -12,9 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 import function.login.google.common.GooglePojo;
 import function.login.google.common.GoogleUtils;
 
-@WebServlet(name ="AccessGoogle", value = "/AccessGoogle/login-google")
+@WebServlet("/login-google")
 public class LoginGoogleServlet extends HttpServlet {
-	private static final long serialVersionUID = 1;
+	private static final long serialVersionUID = 1L;
 
 	public LoginGoogleServlet() {
 		super();
@@ -33,7 +33,7 @@ public class LoginGoogleServlet extends HttpServlet {
 			request.setAttribute("id", list.getId());
 			request.setAttribute("name", list.getName());
 			request.setAttribute("email", list.getEmail());
-			RequestDispatcher dis = request.getRequestDispatcher("login-google.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("home.jsp");
 			dis.forward(request, response);
 		}
 

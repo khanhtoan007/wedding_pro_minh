@@ -19,13 +19,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="adminManageCustomer.jsp">Người dùng</a>
+                <a class="nav-link" href="LoadServlet">Người dùng</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="adminManageStaff.jsp">Nhân viên</a>
+                <a class="nav-link" href="LoadContent">Blog</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" href="service">Sản phẩn</a>
             </li>
         </ul>
     </div>
@@ -43,6 +43,7 @@
                 <form>
                     <input type="text" v-model="name" class="form-control" placeholder="name">
                     <input type="text" class="form-control" placeholder="description" v-model="description">
+                    <a class="btn btn-secondary" href="service">back</a>
                     <button v-on:click="create($event)" class="btn btn-success">create</button>
                 </form>
             </div>

@@ -29,7 +29,5 @@ public class GoogleUtils {
 		GooglePojo googlePojo = new Gson().fromJson(response, GooglePojo.class);
 		System.out.println(googlePojo);
 		return googlePojo;
-
 	}
-
 }

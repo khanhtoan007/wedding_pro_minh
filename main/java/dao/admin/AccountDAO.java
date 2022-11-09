@@ -64,6 +64,27 @@ public class AccountDAO {
     return user;
     }
 
+    public User getCustomerByUsername(String name) {
+        User user = new User() ;
+        String query = "SELECT * from NGUOIDUNG where username = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, name);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                user = new User(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(9));
+            }
+        } catch (Exception e) {
+        }
+        return user;
+    }
+
     public void deleteUser(int id) {
         String query = "delete from NGUOIDUNG\n"
                 + "where id = ?";
@@ -207,7 +228,6 @@ public class AccountDAO {
 
     public static void main(String[] args) {
         AccountDAO dao = new AccountDAO();
-
-        System.out.println(dao.activeMail("071d4160-8d77-448d-b5d2-127fc2d9085f"));
+        System.out.println(dao.changePassword("344aa626-3199-4f33-bef0-241f6ee93aca", "minh"));
     }
 }

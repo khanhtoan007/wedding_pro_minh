@@ -89,14 +89,12 @@
                 </svg>
                 <h2 class="brand-text text-primary ml-1">Brilliant Wedding</h2>
               </a>
-
               <h4 class="card-title mb-1">Forgot Password? 🔒</h4>
               <p class="card-text mb-2">Enter your email and we'll send you instructions to reset your password</p>
-
-              <form class="auth-forgot-password-form mt-2" action="page-auth-reset-password-v1.html" method="POST" novalidate="novalidate">
+              <form class="auth-forgot-password-form mt-2" action="ForgotPasswordServlet" method="POST" novalidate="novalidate">
                 <div class="form-group">
                   <label for="forgot-password-email" class="form-label">Email</label>
-                  <input type="text" class="form-control" id="forgot-password-email" name="forgot-password-email" placeholder="john@example.com" aria-describedby="forgot-password-email" tabindex="1" autofocus="">
+                  <input type="text" class="form-control" id="forgot-password-email" name="email" placeholder="john@example.com" aria-describedby="forgot-password-email" tabindex="1" autofocus="">
                 </div>
                 <button class="btn btn-primary btn-block waves-effect waves-float waves-light" tabindex="2">Send reset link</button>
               </form>
