@@ -23,10 +23,10 @@ public class ActiveServlet extends HttpServlet {
         boolean check = new AccountDAO().activeMail(hash);
         if (check){
             request.setAttribute("message", "<div class=\"alert alert-success\" role=\"alert\">Kích hoạt tài khoản thành công.</div>");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            response.sendRedirect("LoginServlet");
         } else {
             request.setAttribute("message", "<div class=\"alert alert-danger\" role=\"alert\">Có lỗi xảy ra.</div>");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            response.sendRedirect("LoginServlet");
         }
     }
 }

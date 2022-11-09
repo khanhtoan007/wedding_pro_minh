@@ -54,6 +54,28 @@ public class LoginDAO {
         return false;
     }
 
+
+    public boolean changeHash(String email, String hash){
+        String query = "select * from NGUOIDUNG where email = ?";
+        try {
+            conn = new DBContext().getConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1, email);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                String sql_update_hash = "update NGUOIDUNG set hash_string = ? where email = ?";
+                conn = new DBContext().getConnection();
+                ps = conn.prepareStatement(sql_update_hash);
+                ps.setString(1, hash);
+                ps.setString(2, email);
+                ps.executeUpdate();
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
     public User getUserInfo(String username, String password){
         String query = "select * from NGUOIDUNG where username = ? and password = ?";
         User user = new User();
